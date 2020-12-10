@@ -15,4 +15,8 @@ COPY llvm.sh /scripts/llvm.sh
 
 RUN /scripts/llvm.sh 9 && apt-get -yq install  libc++-9-dev libc++abi-9-dev && rm -rf /scripts
 
+COPY appimagetool /tools/appimagetool
+
+RUN ln -s /tools/appimagetool/AppRun /usr/bin/appimagetool
+
 ENTRYPOINT [ "/bin/bash" ]
