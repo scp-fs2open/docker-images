@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-RUN apt-get -yq update && apt-get -yq install software-properties-common wget bash sudo
+RUN apt-get -yq update && apt-get -yq install software-properties-common wget bash sudo git
 
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
