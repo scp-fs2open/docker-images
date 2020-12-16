@@ -3,6 +3,7 @@ name: Publish Linux build image
 on:
   push:
     paths:
+    - '.github/workflows/linux_build.yml'
     - 'build/linux/**'
 
 jobs:
