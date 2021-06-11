@@ -14,7 +14,6 @@ RUN apt-get -yq update && apt-get -yq install cmake ninja-build libopenal-dev li
 COPY llvm.sh /scripts/llvm.sh
 
 RUN /scripts/llvm.sh 9 && apt-get -yq install clang-tidy-9 libc++-9-dev libc++abi-9-dev
-RUN /scripts/llvm.sh 11 && apt-get -yq install clang-tidy-11 libc++-11-dev libc++abi-11-dev
 
 RUN rm -rf /scripts
 
