@@ -1,6 +1,6 @@
 FROM docker.io/library/ubuntu:18.04
 
-RUN apt-get -yq update && apt-get -yq install software-properties-common wget bash sudo git python3-pip
+RUN apt-get -yq update && apt-get -yq install software-properties-common wget bash sudo git python3-pip ccache
 
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
