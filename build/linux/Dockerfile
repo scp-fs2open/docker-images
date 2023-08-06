@@ -6,7 +6,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
 # Repository for the Vulkan SDK so that we have the glslc compiler
 RUN wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | apt-key add -
-RUN wget -qO /etc/apt/sources.list.d/lunarg-vulkan-1.2.148-bionic.list https://packages.lunarg.com/vulkan/1.2.148/lunarg-vulkan-1.2.148-bionic.list
+RUN wget -qO /etc/apt/sources.list.d/lunarg-vulkan-1.3.224-bionic.list https://packages.lunarg.com/vulkan/1.3.224/lunarg-vulkan-1.3.224-bionic.list
 
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | \
 	gpg --dearmor - | \
