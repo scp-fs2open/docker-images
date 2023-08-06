@@ -1,6 +1,6 @@
 FROM docker.io/library/ubuntu:18.04
 
-RUN apt-get -yq update && apt-get -yq install software-properties-common gpg wget bash sudo git python3-pip ccache
+RUN apt-get -yq update && apt-get -yq install software-properties-common gpg wget bash sudo git python3-pip ccache curl jq
 
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
@@ -13,7 +13,7 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
 	tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null && \
 	apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 
-RUN apt-get -yq update && apt-get -yq install cmake=3.23.2-0kitware1ubuntu18.04.1 \
+RUN apt-get -yq update && apt-get -yq install cmake=3.25.2-0kitware1ubuntu18.04.1 \
 	ninja-build libopenal-dev libreadline6-dev libpng-dev libjpeg62-dev \
 	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-5 g++-10 vulkan-sdk
 
