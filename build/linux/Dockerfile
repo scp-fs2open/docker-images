@@ -15,11 +15,11 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
 
 RUN apt-get -yq update && apt-get -yq install cmake=3.25.2-0kitware1ubuntu18.04.1 \
 	ninja-build libopenal-dev libreadline6-dev libpng-dev libjpeg62-dev \
-	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-5 g++-10 vulkan-sdk
+	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-5 g++-13 vulkan-sdk
 
 COPY llvm.sh /scripts/llvm.sh
 
-RUN /scripts/llvm.sh 9 && apt-get -yq install clang-tidy-9 libc++-9-dev libc++abi-9-dev
+RUN /scripts/llvm.sh 16 && apt-get -yq install clang-tidy-16 libc++-16-dev libc++abi-16-dev
 
 RUN rm -rf /scripts
 
