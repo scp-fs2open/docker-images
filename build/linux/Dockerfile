@@ -23,7 +23,7 @@ RUN /tmp/llvm.sh 16 && apt-get -yq install clang-tidy-16 libc++-16-dev libc++abi
 COPY ./ccache-4.8.2-linux-x86_64/ /tmp/ccache/
 RUN cd /tmp/ccache && make install
 
-RUN rm -rf /tmp
+RUN rm -rf /tmp/*
 
 COPY appimagetool /tools/appimagetool
 
