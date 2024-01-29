@@ -2,8 +2,6 @@ FROM --platform=$TARGETPLATFORM docker.io/library/ubuntu:20.04
 
 ARG TARGETARCH
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 # zstd is required for better GitHub cache compression support
@@ -23,7 +21,7 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
 RUN apt-get -yq update && apt-get -yq install cmake=3.28.1-0kitware1ubuntu20.04.1 \
 	ninja-build libopenal-dev libreadline6-dev libpng-dev libjpeg62-dev \
 	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-9 g++-13 \
-	libvulkan-dev vulkan-validationlayers libvulkan1 python3.8 libxcb-glx0-dev
+	libvulkan-dev vulkan-validationlayers libvulkan1 python3.8 python3.8-dev libxcb-glx0-dev
 
 COPY llvm.sh /tmp/llvm.sh
 RUN /tmp/llvm.sh 16 && apt-get -yq install clang-tidy-16 libc++-16-dev libc++abi-16-dev
