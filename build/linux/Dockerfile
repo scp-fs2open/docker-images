@@ -18,7 +18,9 @@ RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/nul
 	tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null && \
 	apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
 
-RUN apt-get -yq update && apt-get -yq install cmake=3.28.1-0kitware1ubuntu20.04.1 \
+RUN apt-get -yq update && apt-get -yq install \
+	cmake=3.28.1-0kitware1ubuntu20.04.1 \
+	cmake-data=3.28.1-0kitware1ubuntu20.04.1 \
 	ninja-build libopenal-dev libreadline6-dev libpng-dev libjpeg62-dev \
 	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-9 g++-13 \
 	libvulkan-dev vulkan-headers vulkan-validationlayers libvulkan1 python3.8 python3.8-dev libxcb-glx0-dev
