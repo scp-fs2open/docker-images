@@ -23,7 +23,11 @@ RUN apt-get -yq update && apt-get -yq install \
 	cmake-data=3.28.1-0kitware1ubuntu20.04.1 \
 	ninja-build libopenal-dev libreadline6-dev libpng-dev libjpeg62-dev \
 	liblua5.1-0-dev libjansson-dev libsdl2-dev libfreetype6-dev valgrind g++-9 g++-13 \
-	libvulkan-dev vulkan-headers vulkan-validationlayers libvulkan1 python3.8 python3.8-dev libxcb-glx0-dev
+	python3.8 python3.8-dev libxcb-glx0-dev
+
+RUN if [ "$TARGETARCH" = "amd64" ]; then apt-get -yq install \
+	libvulkan-dev vulkan-headers vulkan-validationlayers libvulkan1; \
+	fi
 
 COPY llvm.sh /tmp/llvm.sh
 RUN /tmp/llvm.sh 16 && apt-get -yq install clang-tidy-16 libc++-16-dev libc++abi-16-dev
