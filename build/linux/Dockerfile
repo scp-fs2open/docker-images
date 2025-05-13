@@ -26,7 +26,7 @@ RUN apt-get -yq update && apt-get -yq install \
 	python3.8 python3.8-dev libxcb-glx0-dev
 
 RUN if [ "$TARGETARCH" = "amd64" ]; then apt-get -yq install \
-	libvulkan-dev vulkan-headers vulkan-validationlayers libvulkan1; \
+	libvulkan-dev vulkan-headers vulkan-validationlayers libvulkan1 shaderc glslang-tools; \
 	fi
 
 COPY llvm.sh /tmp/llvm.sh
